@@ -55,14 +55,14 @@ LANE_LEFT_MIN      = 53.33
 LANE_RIGHT_MAX     = 26.67
 LATERAL_MIN_DIST   = 12.0
 
-COLOR_SUCCESS      = "#c8c8c8"
-COLOR_PROGRESSIVE  = "#2F80ED"
-COLOR_FAIL         = "#E07070"
-ALPHA_SUCCESS      = 0.07
+COLOR_SUCCESS     = "#c8c8c8"
+COLOR_PROGRESSIVE = "#2F80ED"
+COLOR_FAIL        = "#E07070"
+ALPHA_SUCCESS     = 0.07
 
-COLOR_BLOCK_WON    = "#F59E0B"
-COLOR_BLOCK_LOST   = "#E07070"
-COLOR_PROG_SP      = "#8B5CF6"
+COLOR_LBP_WON  = "#F59E0B"   # amber  – line breaking completed
+COLOR_LBP_LOST = "#E07070"   # red    – line breaking incomplete
+COLOR_BPP      = "#8B5CF6"   # purple – ball progression
 
 FIG_W, FIG_H = 7.9, 5.3
 FIG_DPI = 110
@@ -165,36 +165,38 @@ matches_data = {
     ],
 }
 
-# ── Special passes data ────────────────────────────────────────────────────────
+# ── Advanced Passes data ───────────────────────────────────────────────────────
+# type: "LBP WON" | "LBP LOST"  = Line Breaking Pass
+#       "BPP WON"                = Ball Progression Pass
 special_data = {
     "Vs Sacramento United": [
-        ("BLOCK WON",44.37,19.05,57.84,52.30),("BLOCK WON",48.53,56.12,71.30,56.29),
-        ("BLOCK WON",66.98,33.35,86.43,43.49),("BLOCK WON",66.15,18.22,84.94,32.52),
-        ("BLOCK WON",53.35,19.22,87.26,14.23),("BLOCK WON",71.80,19.22,90.59,15.23),
-        ("BLOCK WON",65.32,27.53,86.26,26.37),
-        ("BLOCK LOST",82.44,31.85,94.24,35.51),
-        ("PROG WON",61.99,10.24,79.78, 4.09),("PROG WON",58.84,36.01,77.29,14.07),
-        ("PROG WON",39.72,19.39,51.69,28.36),("PROG WON",63.82,36.68,72.97,44.82),
+        ("LBP WON",44.37,19.05,57.84,52.30),("LBP WON",48.53,56.12,71.30,56.29),
+        ("LBP WON",66.98,33.35,86.43,43.49),("LBP WON",66.15,18.22,84.94,32.52),
+        ("LBP WON",53.35,19.22,87.26,14.23),("LBP WON",71.80,19.22,90.59,15.23),
+        ("LBP WON",65.32,27.53,86.26,26.37),
+        ("LBP LOST",82.44,31.85,94.24,35.51),
+        ("BPP WON",61.99,10.24,79.78, 4.09),("BPP WON",58.84,36.01,77.29,14.07),
+        ("BPP WON",39.72,19.39,51.69,28.36),("BPP WON",63.82,36.68,72.97,44.82),
     ],
     "Vs Capital City": [
-        ("BLOCK WON",25.59,32.19,49.19,23.54),("BLOCK WON",35.06,26.37,55.35,19.22),
-        ("BLOCK WON",55.18,38.34,77.29,28.53),("BLOCK WON",58.67,38.17,73.63,40.00),
-        ("BLOCK WON",74.46,56.62,90.59,56.79),
-        ("BLOCK LOST",51.69,29.36,87.26,18.22),("BLOCK LOST",51.19,36.34,66.15,43.66),
-        ("BLOCK LOST",60.50,37.17,75.79,30.86),
-        ("PROG WON",54.18,20.72,68.98, 9.75),("PROG WON",57.34,21.55,81.61, 4.59),
+        ("LBP WON",25.59,32.19,49.19,23.54),("LBP WON",35.06,26.37,55.35,19.22),
+        ("LBP WON",55.18,38.34,77.29,28.53),("LBP WON",58.67,38.17,73.63,40.00),
+        ("LBP WON",74.46,56.62,90.59,56.79),
+        ("LBP LOST",51.69,29.36,87.26,18.22),("LBP LOST",51.19,36.34,66.15,43.66),
+        ("LBP LOST",60.50,37.17,75.79,30.86),
+        ("BPP WON",54.18,20.72,68.98, 9.75),("BPP WON",57.34,21.55,81.61, 4.59),
     ],
     "Vs Wake FC": [
-        ("BLOCK WON",53.18,23.71,76.12,32.19),("BLOCK WON",39.89,39.34,55.51,25.21),
-        ("BLOCK WON",36.23,27.37,55.84,51.80),("BLOCK WON",26.92,51.64,41.22,47.15),
-        ("BLOCK WON",13.62,53.80,33.07,55.13),("BLOCK WON",47.70,48.98,74.79,38.34),
-        ("BLOCK WON",44.21,54.30,79.62,51.80),("BLOCK WON",60.83,64.44,78.95,53.13),
-        ("BLOCK WON",48.53,61.94,71.80,60.45),("BLOCK WON",31.41,61.11,50.52,62.28),
-        ("BLOCK WON",24.76,68.09,39.39,58.62),
-        ("BLOCK LOST",47.86,48.15,73.30,40.17),("BLOCK LOST",16.95,67.26,29.75,57.12),
-        ("PROG WON",19.11,52.30,31.74,77.57),("PROG WON",30.24,57.45,37.72,74.74),
-        ("PROG WON",31.91,52.14,36.06,23.88),("PROG WON",77.12,45.98,84.44,24.54),
-        ("PROG WON",50.03,47.98,72.30,33.02),
+        ("LBP WON",53.18,23.71,76.12,32.19),("LBP WON",39.89,39.34,55.51,25.21),
+        ("LBP WON",36.23,27.37,55.84,51.80),("LBP WON",26.92,51.64,41.22,47.15),
+        ("LBP WON",13.62,53.80,33.07,55.13),("LBP WON",47.70,48.98,74.79,38.34),
+        ("LBP WON",44.21,54.30,79.62,51.80),("LBP WON",60.83,64.44,78.95,53.13),
+        ("LBP WON",48.53,61.94,71.80,60.45),("LBP WON",31.41,61.11,50.52,62.28),
+        ("LBP WON",24.76,68.09,39.39,58.62),
+        ("LBP LOST",47.86,48.15,73.30,40.17),("LBP LOST",16.95,67.26,29.75,57.12),
+        ("BPP WON",19.11,52.30,31.74,77.57),("BPP WON",30.24,57.45,37.72,74.74),
+        ("BPP WON",31.91,52.14,36.06,23.88),("BPP WON",77.12,45.98,84.44,24.54),
+        ("BPP WON",50.03,47.98,72.30,33.02),
     ],
 }
 
@@ -204,8 +206,8 @@ def classify_pass_direction(x_start, y_start, x_end, y_end) -> str:
     dy   = y_end - y_start
     dist = np.sqrt(dx**2 + dy**2)
     angle_deg = np.degrees(np.arctan2(abs(dy), dx))
-    if angle_deg <= 45.0:   return "forward"
-    if angle_deg >= 135.0:  return "backward"
+    if angle_deg <= 45.0:  return "forward"
+    if angle_deg >= 135.0: return "backward"
     if dist > LATERAL_MIN_DIST:
         return "lateral_right" if dy > 0 else "lateral_left"
     return "forward" if dx >= 0 else "backward"
@@ -217,8 +219,8 @@ def progressive_pass(x_start: float, x_end: float) -> bool:
     closer_by  = dist_start - dist_end
     start_own  = x_start < HALF_LINE_X
     end_own    = x_end   < HALF_LINE_X
-    if start_own and end_own:   return closer_by >= 30.0
-    if start_own != end_own:    return closer_by >= 15.0
+    if start_own and end_own:  return closer_by >= 30.0
+    if start_own != end_own:   return closer_by >= 15.0
     return closer_by >= 10.0
 
 
@@ -255,7 +257,7 @@ df_all = pd.concat(dfs_by_match.values(), ignore_index=True)
 full_data: dict = {"All Matches": df_all}
 full_data.update(dfs_by_match)
 
-# ── Build Special Passes DataFrames ───────────────────────────────────────────
+# ── Build Advanced Passes DataFrames ──────────────────────────────────────────
 sp_dfs_by_match: dict = {}
 for match_name, events in special_data.items():
     dfm = pd.DataFrame(events, columns=["type","x_start","y_start","x_end","y_end"])
@@ -264,7 +266,8 @@ for match_name, events in special_data.items():
     dfm["number"]        = np.arange(1, len(dfm)+1)
     dfm["is_won"]        = dfm["type"].str.contains("WON", case=False)
     dfm["outcome"]       = np.where(dfm["is_won"], "completed", "incomplete")
-    dfm["pass_type"]     = np.where(dfm["type"].str.startswith("BLOCK"), "into_block", "progression")
+    dfm["pass_type"]     = np.where(dfm["type"].str.startswith("LBP"),
+                                    "line_breaking", "ball_progression")
     dfm["pass_distance"] = np.sqrt((dfm.x_end-dfm.x_start)**2+(dfm.y_end-dfm.y_start)**2)
     sp_dfs_by_match[match_name] = dfm
 
@@ -276,8 +279,8 @@ sp_full_data.update(sp_dfs_by_match)
 # ── Stats: Pass Map ───────────────────────────────────────────────────────────
 def _dir_stats(sub: pd.DataFrame):
     n = max(len(sub), 1)
-    fwd = int(sub["is_forward"].sum());   bwd = int(sub["is_backward"].sum())
-    ll  = int(sub["is_lateral_left"].sum()); lr = int(sub["is_lateral_right"].sum())
+    fwd = int(sub["is_forward"].sum());      bwd = int(sub["is_backward"].sum())
+    ll  = int(sub["is_lateral_left"].sum()); lr  = int(sub["is_lateral_right"].sum())
     return {"fwd":fwd,"fwd_pct":round(fwd/n*100,1),"bwd":bwd,"bwd_pct":round(bwd/n*100,1),
             "ll":ll,"ll_pct":round(ll/n*100,1),"lr":lr,"lr_pct":round(lr/n*100,1)}
 
@@ -285,7 +288,8 @@ def _dir_stats(sub: pd.DataFrame):
 def compute_stats(df: pd.DataFrame) -> dict:
     total = len(df)
     if total == 0:
-        return {k:0 for k in ["total_passes","completed_passes","incomplete_passes","accuracy_pct",
+        return {k:0 for k in [
+            "total_passes","completed_passes","incomplete_passes","accuracy_pct",
             "strong_total","strong_completed","strong_incomplete","strong_accuracy_pct",
             "strong_avg_dist","strong_prog_total","strong_prog_completed",
             "strong_fwd","strong_fwd_pct","strong_bwd","strong_bwd_pct",
@@ -300,7 +304,7 @@ def compute_stats(df: pd.DataFrame) -> dict:
     st_t = len(strong); st_c = int(strong["is_won"].sum())
     wk_t = len(weak);   wk_c = int(weak["is_won"].sum())
     prog_t = int(df["is_progressive"].sum())
-    prog_c = int((df["is_progressive"]&df["is_won"]).sum())
+    prog_c = int((df["is_progressive"] & df["is_won"]).sum())
     sd = _dir_stats(strong); wd = _dir_stats(weak)
     return {
         "total_passes":total,"completed_passes":completed,"incomplete_passes":total-completed,
@@ -324,21 +328,21 @@ def compute_stats(df: pd.DataFrame) -> dict:
     }
 
 
-# ── Stats: Special Passes ─────────────────────────────────────────────────────
-def compute_special_stats(sp_df: pd.DataFrame, total_passes: int) -> dict:
-    blk  = sp_df[sp_df["pass_type"]=="into_block"]
-    prog = sp_df[sp_df["pass_type"]=="progression"]
-    blk_t  = len(blk);  blk_c  = int(blk["is_won"].sum())
-    prog_t = len(prog)
-    ref = max(total_passes, 1)
+# ── Stats: Advanced Passes ────────────────────────────────────────────────────
+def compute_advanced_stats(sp_df: pd.DataFrame, total_passes: int) -> dict:
+    lbp  = sp_df[sp_df["pass_type"] == "line_breaking"]
+    bpp  = sp_df[sp_df["pass_type"] == "ball_progression"]
+    lbp_t = len(lbp); lbp_c = int(lbp["is_won"].sum())
+    bpp_t = len(bpp)
+    ref   = max(total_passes, 1)
     return {
-        "blk_total":       blk_t,
-        "blk_completed":   blk_c,
-        "blk_incomplete":  blk_t - blk_c,
-        "blk_accuracy":    round(blk_c / blk_t * 100, 2) if blk_t else 0,
-        "blk_tendency":    round(blk_t / ref * 100, 2),
-        "prog_total":      prog_t,
-        "prog_tendency":   round(prog_t / ref * 100, 2),
+        "lbp_total":     lbp_t,
+        "lbp_completed": lbp_c,
+        "lbp_incomplete":lbp_t - lbp_c,
+        "lbp_accuracy":  round(lbp_c / lbp_t * 100, 2) if lbp_t else 0,
+        "lbp_tendency":  round(lbp_t / ref * 100, 2),
+        "bpp_total":     bpp_t,
+        "bpp_tendency":  round(bpp_t / ref * 100, 2),
     }
 
 
@@ -357,16 +361,17 @@ def _attack_arrow(fig):
     fig.patches.append(FancyArrowPatch(
         (0.45,0.05),(0.55,0.05), transform=fig.transFigure,
         arrowstyle="-|>", mutation_scale=15, linewidth=2, color="#cccccc"))
-    fig.text(0.5,0.02,"Attacking Direction",ha="center",va="center",fontsize=9,color="#cccccc")
+    fig.text(0.5,0.02,"Attacking Direction",ha="center",va="center",
+             fontsize=9,color="#cccccc")
 
 
 def draw_pass_map(df: pd.DataFrame, title: str):
     fig, ax, pitch = _base_pitch()
     for _, row in df.iterrows():
         is_won = bool(row["is_won"]); is_prog = bool(row["is_progressive"])
-        if not is_won:          color, alpha = COLOR_FAIL, 0.70
-        elif is_prog:           color, alpha = COLOR_PROGRESSIVE, 0.86
-        else:                   color, alpha = COLOR_SUCCESS, ALPHA_SUCCESS
+        if not is_won:   color, alpha = COLOR_FAIL,        0.70
+        elif is_prog:    color, alpha = COLOR_PROGRESSIVE,  0.86
+        else:            color, alpha = COLOR_SUCCESS,      ALPHA_SUCCESS
         pitch.arrows(row.x_start,row.y_start,row.x_end,row.y_end,
                      color=color,width=1.55,headwidth=2.25,headlength=2.25,
                      ax=ax,zorder=3,alpha=alpha)
@@ -374,9 +379,9 @@ def draw_pass_map(df: pd.DataFrame, title: str):
                       edgecolors="white",linewidths=0.8,ax=ax,zorder=6,alpha=alpha)
     ax.set_title(title, fontsize=12, color="#ffffff", pad=8)
     leg = ax.legend(handles=[
-        Line2D([0],[0],color=COLOR_SUCCESS,   lw=2.5,label="Completed",  alpha=0.65),
-        Line2D([0],[0],color=COLOR_PROGRESSIVE,lw=2.5,label="Progressive",alpha=0.90),
-        Line2D([0],[0],color=COLOR_FAIL,       lw=2.5,label="Incomplete", alpha=0.90),
+        Line2D([0],[0],color=COLOR_SUCCESS,    lw=2.5,label="Completed",   alpha=0.65),
+        Line2D([0],[0],color=COLOR_PROGRESSIVE,lw=2.5,label="Progressive",  alpha=0.90),
+        Line2D([0],[0],color=COLOR_FAIL,       lw=2.5,label="Incomplete",   alpha=0.90),
     ], loc="upper left", bbox_to_anchor=(0.01,0.99), frameon=True,
        facecolor="#1a1a2e", edgecolor="#444466", fontsize="x-small",
        labelspacing=0.5, borderpad=0.5)
@@ -386,14 +391,14 @@ def draw_pass_map(df: pd.DataFrame, title: str):
     return _save_fig(fig), ax, fig
 
 
-def draw_special_pass_map(df: pd.DataFrame, title: str):
+def draw_advanced_pass_map(df: pd.DataFrame, title: str):
     fig, ax, pitch = _base_pitch()
     for _, row in df.iterrows():
         ptype  = row["pass_type"]
         is_won = bool(row["is_won"])
-        if ptype == "progression":           color, alpha = COLOR_PROG_SP,   0.90
-        elif is_won:                         color, alpha = COLOR_BLOCK_WON, 0.90
-        else:                                color, alpha = COLOR_BLOCK_LOST,0.75
+        if ptype == "ball_progression":  color, alpha = COLOR_BPP,      0.82
+        elif is_won:                     color, alpha = COLOR_LBP_WON,  0.82
+        else:                            color, alpha = COLOR_LBP_LOST, 0.68
         pitch.arrows(row.x_start,row.y_start,row.x_end,row.y_end,
                      color=color,width=1.65,headwidth=2.40,headlength=2.40,
                      ax=ax,zorder=3,alpha=alpha)
@@ -401,9 +406,9 @@ def draw_special_pass_map(df: pd.DataFrame, title: str):
                       edgecolors="white",linewidths=0.8,ax=ax,zorder=6,alpha=alpha)
     ax.set_title(title, fontsize=12, color="#ffffff", pad=8)
     leg = ax.legend(handles=[
-        Line2D([0],[0],color=COLOR_BLOCK_WON, lw=2.5,label="Into Block – Completed",  alpha=0.90),
-        Line2D([0],[0],color=COLOR_BLOCK_LOST, lw=2.5,label="Into Block – Incomplete", alpha=0.85),
-        Line2D([0],[0],color=COLOR_PROG_SP,    lw=2.5,label="Progression Pass",         alpha=0.90),
+        Line2D([0],[0],color=COLOR_LBP_WON, lw=2.5,label="Line Breaking – Completed",  alpha=0.85),
+        Line2D([0],[0],color=COLOR_LBP_LOST, lw=2.5,label="Line Breaking – Incomplete", alpha=0.80),
+        Line2D([0],[0],color=COLOR_BPP,      lw=2.5,label="Ball Progression Pass",       alpha=0.85),
     ], loc="upper left", bbox_to_anchor=(0.01,0.99), frameon=True,
        facecolor="#1a1a2e", edgecolor="#444466", fontsize="x-small",
        labelspacing=0.5, borderpad=0.5)
@@ -413,35 +418,44 @@ def draw_special_pass_map(df: pd.DataFrame, title: str):
     return _save_fig(fig), ax, fig
 
 
-def draw_corridor_heatmap(df: pd.DataFrame, title: str = "Zone Heatmap — Completed Passes"):
+def draw_corridor_heatmap(df: pd.DataFrame,
+                           title: str = "Zone Heatmap — Completed Passes"):
     df_s   = df[df["is_won"]].copy()
     x_bins = np.linspace(0.0, FIELD_X, 7)
-    corridors = {"left":(LANE_LEFT_MIN,FIELD_Y),"center":(LANE_RIGHT_MAX,LANE_LEFT_MIN),"right":(0.0,LANE_RIGHT_MAX)}
+    corridors = {
+        "left":   (LANE_LEFT_MIN,  FIELD_Y),
+        "center": (LANE_RIGHT_MAX, LANE_LEFT_MIN),
+        "right":  (0.0,            LANE_RIGHT_MAX),
+    }
     counts: dict = {}
     for cname,(y0,y1) in corridors.items():
         arr = np.zeros(6, dtype=int)
         for i in range(6):
             x0_,x1_ = x_bins[i],x_bins[i+1]
-            mask = ((df_s["x_end"]>=x0_)&(df_s["x_end"]<x1_)&(df_s["y_end"]>=y0)&(df_s["y_end"]<y1))
+            mask = ((df_s["x_end"]>=x0_)&(df_s["x_end"]<x1_)
+                    &(df_s["y_end"]>=y0)&(df_s["y_end"]<y1))
             arr[i] = int(mask.sum())
         counts[cname] = arr
     all_vals  = np.concatenate([counts[c] for c in counts])
     vmax      = max(1, int(all_vals.max()))
-    cmap      = LinearSegmentedColormap.from_list("wr",["#ffffff","#ffecec","#ffbfbf","#ff8080","#ff3b3b","#ff0000"])
+    cmap      = LinearSegmentedColormap.from_list(
+        "wr",["#ffffff","#ffecec","#ffbfbf","#ff8080","#ff3b3b","#ff0000"])
     norm      = Normalize(vmin=0, vmax=vmax)
     threshold = max(1, vmax*0.35)
-    pitch = Pitch(pitch_type="statsbomb",pitch_color="#1a1a2e",line_color="#ffffff",line_alpha=0.95)
+    pitch = Pitch(pitch_type="statsbomb",pitch_color="#1a1a2e",
+                  line_color="#ffffff",line_alpha=0.95)
     fig, ax = pitch.draw(figsize=(FIG_W,FIG_H))
     fig.set_facecolor("#1a1a2e"); fig.set_dpi(FIG_DPI)
     for cname,(y0,y1) in corridors.items():
         for i in range(6):
             x0_,x1_ = x_bins[i],x_bins[i+1]
             value    = counts[cname][i]
-            ax.add_patch(Rectangle((x0_,y0),x1_-x0_,y1-y0,facecolor=cmap(norm(value)),
-                                   edgecolor=(1,1,1,0.12),linewidth=0.6,alpha=0.95,zorder=2))
+            ax.add_patch(Rectangle((x0_,y0),x1_-x0_,y1-y0,
+                                   facecolor=cmap(norm(value)),
+                                   edgecolor=(1,1,1,0.12),lw=0.6,alpha=0.95,zorder=2))
             ax.text((x0_+x1_)/2,(y0+y1)/2,str(value),ha="center",va="center",
-                    color="#000000" if value<=threshold else "#ffffff",fontsize=11,
-                    fontweight="700" if value>=vmax*0.5 else "600",zorder=4)
+                    color="#000000" if value<=threshold else "#ffffff",
+                    fontsize=11,fontweight="700" if value>=vmax*0.5 else "600",zorder=4)
     ax.set_title(title,fontsize=12,color="#ffffff",pad=8)
     ax.axhline(y=LANE_LEFT_MIN, color="#ffffff",lw=0.5,alpha=0.15,linestyle="--",zorder=3)
     ax.axhline(y=LANE_RIGHT_MAX,color="#ffffff",lw=0.5,alpha=0.15,linestyle="--",zorder=3)
@@ -449,7 +463,7 @@ def draw_corridor_heatmap(df: pd.DataFrame, title: str = "Zone Heatmap — Compl
     return _save_fig(fig), ax, fig
 
 
-def _top_zone_transitions(df_s: pd.DataFrame, top_k: int=3):
+def _top_zone_transitions(df_s: pd.DataFrame, top_k: int = 3):
     x_bins = np.linspace(0.0,FIELD_X,7)
     y_bins = np.array([0.0,LANE_RIGHT_MAX,LANE_LEFT_MIN,FIELD_Y])
     if df_s.empty: return [], x_bins, y_bins
@@ -464,37 +478,43 @@ def _top_zone_transitions(df_s: pd.DataFrame, top_k: int=3):
     return sorted(transitions.items(),key=lambda kv:kv[1],reverse=True)[:top_k], x_bins, y_bins
 
 
-def draw_top_connection_minimaps(df: pd.DataFrame, top_k: int=3,
-                                  title: str="Top Zone Connections — Completed Passes"):
+def draw_top_connection_minimaps(df: pd.DataFrame, top_k: int = 3,
+                                  title: str = "Top Zone Connections — Completed Passes"):
     df_s = df[df["is_won"]].copy()
     links, x_bins, y_bins = _top_zone_transitions(df_s, top_k=top_k)
     x_cent = (x_bins[:-1]+x_bins[1:])/2.0
     y_cent = (y_bins[:-1]+y_bins[1:])/2.0
     max_cnt = max([v for _,v in links],default=1) if links else 1
     fig, axes = plt.subplots(1,top_k,figsize=(FIG_W*1.65,FIG_H*0.82),dpi=FIG_DPI)
-    if top_k==1: axes=[axes]
+    if top_k == 1: axes = [axes]
     fig.set_facecolor("#1a1a2e")
-    pitch = Pitch(pitch_type="statsbomb",pitch_color="#1a1a2e",line_color="#ffffff",line_alpha=0.90)
+    pitch = Pitch(pitch_type="statsbomb",pitch_color="#1a1a2e",
+                  line_color="#ffffff",line_alpha=0.90)
     for idx, ax in enumerate(axes):
         pitch.draw(ax=ax)
         ax.axhline(y=LANE_LEFT_MIN, color="#ffffff",lw=0.4,alpha=0.12,linestyle="--")
         ax.axhline(y=LANE_RIGHT_MAX,color="#ffffff",lw=0.4,alpha=0.12,linestyle="--")
-        if idx>=len(links): ax.set_title("—",fontsize=9,color="#dbeafe",pad=4); continue
+        if idx >= len(links):
+            ax.set_title("—",fontsize=9,color="#dbeafe",pad=4); continue
         (ix0,iy0,ix1,iy1),cnt = links[idx]
         x0,y0 = float(x_cent[ix0]),float(y_cent[iy0])
         x1,y1 = float(x_cent[ix1]),float(y_cent[iy1])
-        rel = cnt/max_cnt; color = plt.cm.Blues(0.40+0.55*rel)
-        ax.add_patch(Rectangle((x_bins[ix0],y_bins[iy0]),x_bins[ix0+1]-x_bins[ix0],y_bins[iy0+1]-y_bins[iy0],
-                                facecolor=(0.20,0.45,0.95,0.18),edgecolor=(1,1,1,0.18),lw=0.6,zorder=2))
-        ax.add_patch(Rectangle((x_bins[ix1],y_bins[iy1]),x_bins[ix1+1]-x_bins[ix1],y_bins[iy1+1]-y_bins[iy1],
-                                facecolor=(0.02,0.70,0.55,0.18),edgecolor=(1,1,1,0.18),lw=0.6,zorder=2))
+        rel   = cnt/max_cnt; color = plt.cm.Blues(0.40+0.55*rel)
+        ax.add_patch(Rectangle(
+            (x_bins[ix0],y_bins[iy0]),x_bins[ix0+1]-x_bins[ix0],y_bins[iy0+1]-y_bins[iy0],
+            facecolor=(0.20,0.45,0.95,0.18),edgecolor=(1,1,1,0.18),lw=0.6,zorder=2))
+        ax.add_patch(Rectangle(
+            (x_bins[ix1],y_bins[iy1]),x_bins[ix1+1]-x_bins[ix1],y_bins[iy1+1]-y_bins[iy1],
+            facecolor=(0.02,0.70,0.55,0.18),edgecolor=(1,1,1,0.18),lw=0.6,zorder=2))
         if ix0==ix1 and iy0==iy1:
-            ax.scatter([x0],[y0],s=40+80*rel,c=[color],marker="o",edgecolors="white",linewidths=0.5,alpha=0.35+0.60*rel,zorder=5)
+            ax.scatter([x0],[y0],s=40+80*rel,c=[color],marker="o",
+                       edgecolors="white",linewidths=0.5,alpha=0.35+0.60*rel,zorder=5)
         else:
             rad = float(np.clip(0.10*np.sign((ix1-ix0)+0.4*(iy1-iy0)),-0.30,0.30))
-            ax.add_patch(FancyArrowPatch((x0,y0),(x1,y1),connectionstyle=f"arc3,rad={rad}",
-                                         arrowstyle="-|>",mutation_scale=10+9*rel,
-                                         lw=1.2+4.2*rel,color=color,alpha=0.35+0.60*rel,zorder=4))
+            ax.add_patch(FancyArrowPatch(
+                (x0,y0),(x1,y1),connectionstyle=f"arc3,rad={rad}",
+                arrowstyle="-|>",mutation_scale=10+9*rel,
+                lw=1.2+4.2*rel,color=color,alpha=0.35+0.60*rel,zorder=4))
         ax.text((x0+x1)/2,(y0+y1)/2,f"{cnt}",color="#e5efff",fontsize=9,
                 ha="center",va="center",zorder=7,
                 bbox=dict(boxstyle="round,pad=0.18",fc=(0.06,0.09,0.14,0.80),ec="none"))
@@ -511,10 +531,10 @@ def draw_top_connection_minimaps(df: pd.DataFrame, top_k: int=3,
 # ══════════════════════════════════════════════════════════════════════════════
 # TABS
 # ══════════════════════════════════════════════════════════════════════════════
-tab_passmap, tab_special = st.tabs(["📋 Pass Map", "🎯 Block & Progression"])
+tab_passmap, tab_advanced = st.tabs(["📋 Pass Map", "🎯 Advanced Passes"])
 
 
-# ── TAB 1: PASS MAP ───────────────────────────────────────────────────────────
+# ── TAB 1: PASS MAP ───────────────────────────────────────���───────────────────
 with tab_passmap:
     st.caption("Click the origin dot on the pass map to inspect an event.")
     col_filters, col_field, col_stats = st.columns([0.9, 2, 1], gap="large")
@@ -522,17 +542,21 @@ with tab_passmap:
     with col_filters:
         st.markdown('<div class="filter-panel">', unsafe_allow_html=True)
         st.markdown("### 📍 Position")
-        position_sel = st.radio("Filter by position",["All Positions","LCB","RCB"],index=0,key="pm_pos")
+        position_sel = st.radio("Filter by position",
+                                ["All Positions","LCB","RCB"],index=0,key="pm_pos")
         st.markdown("<div style='font-size:11px;color:#94a3b8;margin-top:-6px;margin-bottom:4px;'>"
                     "LCB: Sac. United, Capital City &nbsp;|&nbsp; RCB: Wake FC</div>",
                     unsafe_allow_html=True)
         st.markdown('<hr class="filter-divider">', unsafe_allow_html=True)
-        if position_sel=="All Positions": avail=list(dfs_by_match.keys())
-        else: avail=[m for m,p in POSITION_BY_MATCH.items() if p==position_sel]
-        pos_df_all = pd.concat([dfs_by_match[m] for m in avail],ignore_index=True) if avail else df_all.iloc[0:0]
-        pos_full: dict = {"All Matches":pos_df_all}; pos_full.update({m:dfs_by_match[m] for m in avail})
+        if position_sel == "All Positions": avail = list(dfs_by_match.keys())
+        else: avail = [m for m,p in POSITION_BY_MATCH.items() if p==position_sel]
+        pos_df_all = (pd.concat([dfs_by_match[m] for m in avail], ignore_index=True)
+                      if avail else df_all.iloc[0:0])
+        pos_full: dict = {"All Matches": pos_df_all}
+        pos_full.update({m: dfs_by_match[m] for m in avail})
         st.markdown("### 🏟️ Match")
-        selected_match = st.selectbox("Choose the match",list(pos_full.keys()),index=0,key="pm_match")
+        selected_match = st.selectbox("Choose the match",list(pos_full.keys()),
+                                      index=0,key="pm_match")
         st.markdown('<hr class="filter-divider">', unsafe_allow_html=True)
         st.markdown("### 🎯 Pass Filter")
         pass_filter = st.radio("Filter passes",
@@ -543,143 +567,172 @@ with tab_passmap:
 
     for key,default in [("heat_sel_pm",None),("last_match_pm",selected_match),
                          ("last_filter_pm",pass_filter),("last_pos_pm",position_sel)]:
-        if key not in st.session_state: st.session_state[key]=default
-    if st.session_state["last_pos_pm"]    != position_sel:    st.session_state["heat_sel_pm"]=None; st.session_state["last_pos_pm"]=position_sel
-    if st.session_state["last_match_pm"]  != selected_match:  st.session_state["heat_sel_pm"]=None; st.session_state["last_match_pm"]=selected_match
-    if st.session_state["last_filter_pm"] != pass_filter:     st.session_state["heat_sel_pm"]=None; st.session_state["last_filter_pm"]=pass_filter
+        if key not in st.session_state: st.session_state[key] = default
+    if st.session_state["last_pos_pm"]    != position_sel:   st.session_state["heat_sel_pm"]=None; st.session_state["last_pos_pm"]=position_sel
+    if st.session_state["last_match_pm"]  != selected_match: st.session_state["heat_sel_pm"]=None; st.session_state["last_match_pm"]=selected_match
+    if st.session_state["last_filter_pm"] != pass_filter:    st.session_state["heat_sel_pm"]=None; st.session_state["last_filter_pm"]=pass_filter
 
     with col_field:
         df_base = pos_full[selected_match].copy()
-        if pass_filter=="Strong Foot Only":   df_base=df_base[df_base["foot"]=="strong"].reset_index(drop=True)
-        elif pass_filter=="Weak Foot Only":   df_base=df_base[df_base["foot"]=="weak"].reset_index(drop=True)
-        elif pass_filter=="Completed Only":   df_base=df_base[df_base["is_won"]].reset_index(drop=True)
-        elif pass_filter=="Incomplete Only":  df_base=df_base[~df_base["is_won"]].reset_index(drop=True)
-        elif pass_filter=="Progressive Only": df_base=df_base[df_base["is_progressive"]].reset_index(drop=True)
-        else: df_base=df_base.reset_index(drop=True)
+        if pass_filter == "Strong Foot Only":   df_base = df_base[df_base["foot"]=="strong"].reset_index(drop=True)
+        elif pass_filter == "Weak Foot Only":   df_base = df_base[df_base["foot"]=="weak"].reset_index(drop=True)
+        elif pass_filter == "Completed Only":   df_base = df_base[df_base["is_won"]].reset_index(drop=True)
+        elif pass_filter == "Incomplete Only":  df_base = df_base[~df_base["is_won"]].reset_index(drop=True)
+        elif pass_filter == "Progressive Only": df_base = df_base[df_base["is_progressive"]].reset_index(drop=True)
+        else: df_base = df_base.reset_index(drop=True)
 
         DW = 780
         pm_placeholder = st.empty()
 
-        st.markdown('<h4 style="color:#ffffff;margin:6px 0 6px 0;">Zone Heatmap</h4>',unsafe_allow_html=True)
+        st.markdown('<h4 style="color:#ffffff;margin:6px 0 6px 0;">Zone Heatmap</h4>',
+                    unsafe_allow_html=True)
         heat_img,hax,hfig = draw_corridor_heatmap(df_base)
         heat_click = streamlit_image_coordinates(heat_img,width=DW,key="pm_heat")
         if heat_click is not None:
-            rw,rh=heat_img.size; px=heat_click["x"]*(rw/heat_click["width"]); py=heat_click["y"]*(rh/heat_click["height"])
-            fx,fy=hax.transData.inverted().transform((px,rh-py))
-            xb=np.linspace(0,FIELD_X,7); ix=max(0,min(5,np.searchsorted(xb,fx,side="right")-1))
-            x0h,x1h=xb[ix],xb[ix+1]
-            if fy>=LANE_LEFT_MIN:      cn,y0h,y1h="left",LANE_LEFT_MIN,FIELD_Y
-            elif fy<LANE_RIGHT_MAX:    cn,y0h,y1h="right",0.0,LANE_RIGHT_MAX
-            else:                      cn,y0h,y1h="center",LANE_RIGHT_MAX,LANE_LEFT_MIN
-            st.session_state["heat_sel_pm"]={"ix":int(ix),"corridor":cn,"x0":float(x0h),"x1":float(x1h),"y0":float(y0h),"y1":float(y1h)}
+            rw,rh = heat_img.size
+            px = heat_click["x"]*(rw/heat_click["width"])
+            py = heat_click["y"]*(rh/heat_click["height"])
+            fx,fy = hax.transData.inverted().transform((px,rh-py))
+            xb = np.linspace(0,FIELD_X,7)
+            ix = max(0,min(5,np.searchsorted(xb,fx,side="right")-1))
+            x0h,x1h = xb[ix],xb[ix+1]
+            if fy >= LANE_LEFT_MIN:      cn,y0h,y1h = "left",  LANE_LEFT_MIN, FIELD_Y
+            elif fy < LANE_RIGHT_MAX:    cn,y0h,y1h = "right", 0.0,           LANE_RIGHT_MAX
+            else:                        cn,y0h,y1h = "center",LANE_RIGHT_MAX,LANE_LEFT_MIN
+            st.session_state["heat_sel_pm"] = {
+                "ix":int(ix),"corridor":cn,
+                "x0":float(x0h),"x1":float(x1h),
+                "y0":float(y0h),"y1":float(y1h)}
         plt.close(hfig)
 
-        st.markdown('<h4 style="color:#ffffff;margin:14px 0 4px 0;">Top Zone Connections</h4>',unsafe_allow_html=True)
+        st.markdown('<h4 style="color:#ffffff;margin:14px 0 4px 0;">Top Zone Connections</h4>',
+                    unsafe_allow_html=True)
         mini_img,_,mini_fig = draw_top_connection_minimaps(df_base,top_k=3)
         st.image(mini_img,use_container_width=True); plt.close(mini_fig)
 
         with pm_placeholder.container():
-            st.markdown('<h4 style="color:#ffffff;margin:0 0 6px 0;">Pass Map</h4>',unsafe_allow_html=True)
-            if st.button("Clear Zone Filter",key="pm_clear"): st.session_state["heat_sel_pm"]=None
-            df_to_draw=df_base
+            st.markdown('<h4 style="color:#ffffff;margin:0 0 6px 0;">Pass Map</h4>',
+                        unsafe_allow_html=True)
+            if st.button("Clear Zone Filter",key="pm_clear"):
+                st.session_state["heat_sel_pm"] = None
+            df_to_draw = df_base
             if st.session_state["heat_sel_pm"] is not None:
-                sel=st.session_state["heat_sel_pm"]
-                df_to_draw=df_base[(df_base["x_end"]>=sel["x0"])&(df_base["x_end"]<sel["x1"])
-                                   &(df_base["y_end"]>=sel["y0"])&(df_base["y_end"]<sel["y1"])].reset_index(drop=True)
-            img_obj,ax,fig=draw_pass_map(df_to_draw,title=f"Pass Map — {selected_match}")
-            click=streamlit_image_coordinates(img_obj,width=DW,key="pm_map")
+                sel = st.session_state["heat_sel_pm"]
+                df_to_draw = df_base[
+                    (df_base["x_end"]>=sel["x0"])&(df_base["x_end"]<sel["x1"])
+                    &(df_base["y_end"]>=sel["y0"])&(df_base["y_end"]<sel["y1"])
+                ].reset_index(drop=True)
+            img_obj,ax,fig = draw_pass_map(df_to_draw,title=f"Pass Map — {selected_match}")
+            click = streamlit_image_coordinates(img_obj,width=DW,key="pm_map")
 
-        selected_pass=None
+        selected_pass = None
         if click is not None:
-            rw,rh=img_obj.size; px=click["x"]*(rw/click["width"]); py=click["y"]*(rh/click["height"])
-            fx,fy=ax.transData.inverted().transform((px,rh-py))
-            df_sel=df_to_draw.copy(); df_sel["_dist"]=np.sqrt((df_sel.x_start-fx)**2+(df_sel.y_start-fy)**2)
-            cands=df_sel[df_sel["_dist"]<5.0].sort_values("_dist")
-            if not cands.empty: selected_pass=cands.iloc[0]
+            rw,rh = img_obj.size
+            px = click["x"]*(rw/click["width"]); py = click["y"]*(rh/click["height"])
+            fx,fy = ax.transData.inverted().transform((px,rh-py))
+            df_sel = df_to_draw.copy()
+            df_sel["_dist"] = np.sqrt((df_sel.x_start-fx)**2+(df_sel.y_start-fy)**2)
+            cands = df_sel[df_sel["_dist"]<5.0].sort_values("_dist")
+            if not cands.empty: selected_pass = cands.iloc[0]
         plt.close(fig)
 
         if st.session_state["heat_sel_pm"] is not None:
-            sel=st.session_state["heat_sel_pm"]
-            n=int(((df_base["x_end"]>=sel["x0"])&(df_base["x_end"]<sel["x1"])&(df_base["y_end"]>=sel["y0"])&(df_base["y_end"]<sel["y1"])).sum())
-            st.markdown(f"<div style='color:#ffffff;margin-top:6px;'><strong>Zone filter active:</strong> channel <code>{sel['corridor']}</code>, column #{sel['ix']+1} — {n} passes</div>",unsafe_allow_html=True)
+            sel = st.session_state["heat_sel_pm"]
+            n = int(((df_base["x_end"]>=sel["x0"])&(df_base["x_end"]<sel["x1"])
+                     &(df_base["y_end"]>=sel["y0"])&(df_base["y_end"]<sel["y1"])).sum())
+            st.markdown(f"<div style='color:#ffffff;margin-top:6px;'>"
+                        f"<strong>Zone filter active:</strong> channel "
+                        f"<code>{sel['corridor']}</code>, column #{sel['ix']+1} — {n} passes</div>",
+                        unsafe_allow_html=True)
 
         st.divider(); st.subheader("Selected Event")
         if selected_pass is None:
             st.info("Click an origin dot on the pass map to inspect an event.")
         else:
-            foot_label="Weak Foot" if selected_pass["foot"]=="weak" else "Strong Foot"
-            prog_tag="  ·  ✅ Progressive" if selected_pass["is_progressive"] else ""
-            st.success(f"Pass #{int(selected_pass['number'])} — {selected_pass['type']} | {foot_label}{prog_tag}")
-            c1,c2=st.columns(2)
+            foot_label = "Weak Foot" if selected_pass["foot"]=="weak" else "Strong Foot"
+            prog_tag   = "  ·  ✅ Progressive" if selected_pass["is_progressive"] else ""
+            st.success(f"Pass #{int(selected_pass['number'])} — {selected_pass['type']} "
+                       f"| {foot_label}{prog_tag}")
+            c1,c2 = st.columns(2)
             c1.write(f"**Origin:** ({selected_pass.x_start:.2f}, {selected_pass.y_start:.2f})")
             c2.write(f"**Destination:** ({selected_pass.x_end:.2f}, {selected_pass.y_end:.2f})")
-            dir_map={"forward":"⬆️ Forward","backward":"⬇️ Backward","lateral_left":"◀️ Lateral Left","lateral_right":"▶️ Lateral Right"}
-            t1,t2=st.columns(2)
+            dir_map = {"forward":"⬆️ Forward","backward":"⬇️ Backward",
+                       "lateral_left":"◀️ Lateral Left","lateral_right":"▶️ Lateral Right"}
+            t1,t2 = st.columns(2)
             t1.write(f"**Direction:** {dir_map.get(selected_pass['direction'],selected_pass['direction'])}")
             t2.write(f"**Foot:** {foot_label}")
             st.metric("Pass Distance",f"{selected_pass.pass_distance:.1f} m")
 
         with st.expander("📊 Full Pass Data Table"):
-            dc=["number","type","foot","outcome","direction","x_start","y_start","x_end","y_end","pass_distance",
-                "is_forward","is_backward","is_lateral_left","is_lateral_right","is_progressive"]
-            st.dataframe(df_to_draw[dc].style.format({"x_start":"{:.2f}","y_start":"{:.2f}","x_end":"{:.2f}","y_end":"{:.2f}","pass_distance":"{:.1f}"}),
-                         use_container_width=True,height=400)
+            dc = ["number","type","foot","outcome","direction","x_start","y_start",
+                  "x_end","y_end","pass_distance","is_forward","is_backward",
+                  "is_lateral_left","is_lateral_right","is_progressive"]
+            st.dataframe(df_to_draw[dc].style.format(
+                {"x_start":"{:.2f}","y_start":"{:.2f}","x_end":"{:.2f}",
+                 "y_end":"{:.2f}","pass_distance":"{:.1f}"}),
+                use_container_width=True,height=400)
 
     with col_stats:
-        s=compute_stats(df_to_draw)
+        s = compute_stats(df_to_draw)
         with st.expander("📋 General Statistics",expanded=True):
             st.markdown('<div class="stats-section-title">Overview</div>',unsafe_allow_html=True)
-            r1,r2,r3=st.columns(3)
-            with r1: small_metric("Total Passes",f"{s['total_passes']}")
-            with r2: small_metric("Completed",   f"{s['completed_passes']}")
-            with r3: small_metric("Accuracy",    f"{s['accuracy_pct']:.1f}%")
+            r1,r2,r3 = st.columns(3)
+            with r1: small_metric("Total Passes", f"{s['total_passes']}")
+            with r2: small_metric("Completed",    f"{s['completed_passes']}")
+            with r3: small_metric("Accuracy",     f"{s['accuracy_pct']:.1f}%")
             st.markdown("<hr style='margin:6px 0 8px 0;'>",unsafe_allow_html=True)
             st.markdown('<div class="stats-section-title">🦶 Strong Foot</div>',unsafe_allow_html=True)
-            d1,d2,d3=st.columns(3)
+            d1,d2,d3 = st.columns(3)
             with d1: small_metric("Total",    f"{s['strong_total']}")
             with d2: small_metric("Completed",f"{s['strong_completed']}")
             with d3: small_metric("Accuracy", f"{s['strong_accuracy_pct']:.1f}%")
             st.markdown("<hr style='margin:6px 0 8px 0;'>",unsafe_allow_html=True)
             st.markdown('<div class="stats-section-title">🦵 Weak Foot</div>',unsafe_allow_html=True)
-            w1,w2,w3=st.columns(3)
+            w1,w2,w3 = st.columns(3)
             with w1: small_metric("Total",    f"{s['weak_total']}")
             with w2: small_metric("Completed",f"{s['weak_completed']}")
             with w3: small_metric("Accuracy", f"{s['weak_accuracy_pct']:.1f}%")
 
         with st.expander("🔬 Advanced Statistics",expanded=False):
             st.markdown('<div class="stats-section-title">🦵 Weak Foot Tendency</div>',unsafe_allow_html=True)
-            tf1,tf2=st.columns(2)
-            with tf1: small_metric("Tendency",f"{s['weak_tendency_pct']:.1f}%",delta=f"{s['weak_total']} of {s['total_passes']} passes")
-            with tf2: small_metric("Weak Foot Accuracy",f"{s['weak_accuracy_pct']:.1f}%",delta=f"{s['weak_completed']} completed / {s['weak_incomplete']} incomplete")
+            tf1,tf2 = st.columns(2)
+            with tf1: small_metric("Tendency",f"{s['weak_tendency_pct']:.1f}%",
+                                   delta=f"{s['weak_total']} of {s['total_passes']} passes")
+            with tf2: small_metric("Weak Foot Accuracy",f"{s['weak_accuracy_pct']:.1f}%",
+                                   delta=f"{s['weak_completed']} completed / {s['weak_incomplete']} incomplete")
             st.markdown("<hr style='margin:6px 0 8px 0;'>",unsafe_allow_html=True)
             st.markdown('<div class="stats-section-title">📏 Average Pass Distance</div>',unsafe_allow_html=True)
-            d1,d2=st.columns(2)
-            with d1: small_metric("Strong Foot (avg)",f"{s['strong_avg_dist']:.1f} m",delta=f"Accuracy: {s['strong_accuracy_pct']:.1f}%")
-            with d2: small_metric("Weak Foot (avg)",  f"{s['weak_avg_dist']:.1f} m",  delta=f"Accuracy: {s['weak_accuracy_pct']:.1f}%")
+            d1,d2 = st.columns(2)
+            with d1: small_metric("Strong Foot (avg)",f"{s['strong_avg_dist']:.1f} m",
+                                  delta=f"Accuracy: {s['strong_accuracy_pct']:.1f}%")
+            with d2: small_metric("Weak Foot (avg)",  f"{s['weak_avg_dist']:.1f} m",
+                                  delta=f"Accuracy: {s['weak_accuracy_pct']:.1f}%")
             st.markdown("<hr style='margin:6px 0 8px 0;'>",unsafe_allow_html=True)
             st.markdown('<div class="stats-section-title">🔵 Progressive Passes per Foot</div>',unsafe_allow_html=True)
-            pp1,pp2=st.columns(2)
-            with pp1: small_metric("Strong Foot",f"{s['strong_prog_total']}",delta=f"{s['strong_prog_completed']} completed")
-            with pp2: small_metric("Weak Foot",  f"{s['weak_prog_total']}",  delta=f"{s['weak_prog_completed']} completed")
+            pp1,pp2 = st.columns(2)
+            with pp1: small_metric("Strong Foot",f"{s['strong_prog_total']}",
+                                   delta=f"{s['strong_prog_completed']} completed")
+            with pp2: small_metric("Weak Foot",  f"{s['weak_prog_total']}",
+                                   delta=f"{s['weak_prog_completed']} completed")
             st.markdown("<hr style='margin:6px 0 8px 0;'>",unsafe_allow_html=True)
             st.markdown('<div class="stats-section-title">🦶 Pass Direction — Strong Foot</div>',unsafe_allow_html=True)
-            dd1,dd2=st.columns(2)
+            dd1,dd2 = st.columns(2)
             with dd1: small_metric("⬆️ Forward", f"{s['strong_fwd']}",delta=f"{s['strong_fwd_pct']:.0f}% of strong foot")
             with dd2: small_metric("⬇️ Backward",f"{s['strong_bwd']}",delta=f"{s['strong_bwd_pct']:.0f}%")
-            dd3,dd4=st.columns(2)
+            dd3,dd4 = st.columns(2)
             with dd3: small_metric("▶️ Lateral Right",f"{s['strong_lr']}",delta=f"{s['strong_lr_pct']:.0f}%")
             with dd4: small_metric("◀️ Lateral Left", f"{s['strong_ll']}",delta=f"{s['strong_ll_pct']:.0f}%")
             st.markdown("<hr style='margin:6px 0 8px 0;'>",unsafe_allow_html=True)
             st.markdown('<div class="stats-section-title">🦵 Pass Direction — Weak Foot</div>',unsafe_allow_html=True)
-            dw1,dw2=st.columns(2)
+            dw1,dw2 = st.columns(2)
             with dw1: small_metric("⬆️ Forward", f"{s['weak_fwd']}",delta=f"{s['weak_fwd_pct']:.0f}% of weak foot")
             with dw2: small_metric("⬇️ Backward",f"{s['weak_bwd']}",delta=f"{s['weak_bwd_pct']:.0f}%")
-            dw3,dw4=st.columns(2)
+            dw3,dw4 = st.columns(2)
             with dw3: small_metric("▶️ Lateral Right",f"{s['weak_lr']}",delta=f"{s['weak_lr_pct']:.0f}%")
             with dw4: small_metric("◀️ Lateral Left", f"{s['weak_ll']}",delta=f"{s['weak_ll_pct']:.0f}%")
             st.markdown("<hr style='margin:6px 0 8px 0;'>",unsafe_allow_html=True)
             st.markdown('<div class="stats-section-title">🔵 Progressive Passes (Wyscout)</div>',unsafe_allow_html=True)
-            p1,p2,p3,p4=st.columns(4)
+            p1,p2,p3,p4 = st.columns(4)
             with p1: small_metric("Total",     f"{s['prog_total']}")
             with p2: small_metric("Completed", f"{s['prog_completed']}")
             with p3: small_metric("Accuracy",  f"{s['prog_accuracy_pct']:.1f}%")
@@ -687,117 +740,129 @@ with tab_passmap:
 
         st.divider()
         st.caption("Grey = Completed  ·  🔵 Blue = Progressive  ·  🔴 Red = Incomplete  |  "
-                   "Lateral Right = toward upper touchline (y→80)  ·  Lateral Left = toward lower touchline (y→0)")
+                   "Lateral Right = toward upper touchline (y→80)  ·  "
+                   "Lateral Left = toward lower touchline (y→0)")
 
 
-# ── TAB 2: BLOCK & PROGRESSION ────────────────────────────────────────────────
-with tab_special:
-    st.caption("Passes into the block (🟡 yellow) and progression passes (🟣 purple).")
+# ── TAB 2: ADVANCED PASSES ────────────────────────────────────────────────────
+with tab_advanced:
+    st.caption("Line Breaking Passes (🟡 yellow) and Ball Progression Passes (🟣 purple).")
     sp_col_f, sp_col_field, sp_col_stats = st.columns([0.9, 2, 1], gap="large")
 
     with sp_col_f:
         st.markdown('<div class="filter-panel">', unsafe_allow_html=True)
         st.markdown("### 📍 Position")
-        sp_pos = st.radio("Filter by position",["All Positions","LCB","RCB"],index=0,key="sp_pos")
+        sp_pos = st.radio("Filter by position",["All Positions","LCB","RCB"],
+                          index=0,key="sp_pos")
         st.markdown("<div style='font-size:11px;color:#94a3b8;margin-top:-6px;margin-bottom:4px;'>"
                     "LCB: Sac. United, Capital City &nbsp;|&nbsp; RCB: Wake FC</div>",
                     unsafe_allow_html=True)
         st.markdown('<hr class="filter-divider">', unsafe_allow_html=True)
-        if sp_pos=="All Positions": sp_avail=list(sp_dfs_by_match.keys())
-        else: sp_avail=[m for m,p in POSITION_BY_MATCH.items() if p==sp_pos]
-        sp_pos_all = pd.concat([sp_dfs_by_match[m] for m in sp_avail],ignore_index=True) if sp_avail else sp_df_all.iloc[0:0]
-        # also build corresponding pass-map totals for the same scope
-        pm_pos_all = pd.concat([dfs_by_match[m] for m in sp_avail],ignore_index=True) if sp_avail else df_all.iloc[0:0]
+
+        if sp_pos == "All Positions": sp_avail = list(sp_dfs_by_match.keys())
+        else: sp_avail = [m for m,p in POSITION_BY_MATCH.items() if p==sp_pos]
+
+        sp_pos_all = (pd.concat([sp_dfs_by_match[m] for m in sp_avail],ignore_index=True)
+                      if sp_avail else sp_df_all.iloc[0:0])
+        pm_pos_all = (pd.concat([dfs_by_match[m] for m in sp_avail],ignore_index=True)
+                      if sp_avail else df_all.iloc[0:0])
+
         sp_pos_full: dict = {"All Matches": sp_pos_all}
         sp_pos_full.update({m: sp_dfs_by_match[m] for m in sp_avail})
         pm_pos_full: dict = {"All Matches": pm_pos_all}
         pm_pos_full.update({m: dfs_by_match[m] for m in sp_avail})
 
         st.markdown("### 🏟️ Match")
-        sp_match = st.selectbox("Choose the match",list(sp_pos_full.keys()),index=0,key="sp_match")
+        sp_match = st.selectbox("Choose the match",list(sp_pos_full.keys()),
+                                index=0,key="sp_match")
         st.markdown('<hr class="filter-divider">', unsafe_allow_html=True)
         st.markdown("### 🎯 Pass Type")
-        sp_filter = st.radio("Show passes",["All","Into Block Only","Progression Only"],
+        sp_filter = st.radio("Show passes",
+                             ["All","Line Breaking Only","Ball Progression Only"],
                              index=0,key="sp_filter")
         st.markdown('</div>', unsafe_allow_html=True)
 
     with sp_col_field:
         sp_df_base = sp_pos_full[sp_match].copy()
-        if sp_filter=="Into Block Only":
-            sp_df_base=sp_df_base[sp_df_base["pass_type"]=="into_block"].reset_index(drop=True)
-        elif sp_filter=="Progression Only":
-            sp_df_base=sp_df_base[sp_df_base["pass_type"]=="progression"].reset_index(drop=True)
+        if sp_filter == "Line Breaking Only":
+            sp_df_base = sp_df_base[sp_df_base["pass_type"]=="line_breaking"].reset_index(drop=True)
+        elif sp_filter == "Ball Progression Only":
+            sp_df_base = sp_df_base[sp_df_base["pass_type"]=="ball_progression"].reset_index(drop=True)
         else:
-            sp_df_base=sp_df_base.reset_index(drop=True)
+            sp_df_base = sp_df_base.reset_index(drop=True)
 
         SP_DW = 780
 
-        # ── Pass Map ────────────────────────────────────────────────────────
-        st.markdown('<h4 style="color:#ffffff;margin:0 0 6px 0;">Block & Progression Pass Map</h4>',unsafe_allow_html=True)
-        sp_img,sp_ax,sp_fig=draw_special_pass_map(sp_df_base,title=f"Block & Progression — {sp_match}")
-        sp_click=streamlit_image_coordinates(sp_img,width=SP_DW,key="sp_map")
-        sp_selected=None
+        st.markdown('<h4 style="color:#ffffff;margin:0 0 6px 0;">Advanced Passes Map</h4>',
+                    unsafe_allow_html=True)
+        sp_img,sp_ax,sp_fig = draw_advanced_pass_map(
+            sp_df_base, title=f"Advanced Passes — {sp_match}")
+        sp_click = streamlit_image_coordinates(sp_img,width=SP_DW,key="sp_map")
+
+        sp_selected = None
         if sp_click is not None:
-            rw,rh=sp_img.size; px=sp_click["x"]*(rw/sp_click["width"]); py=sp_click["y"]*(rh/sp_click["height"])
-            fx,fy=sp_ax.transData.inverted().transform((px,rh-py))
-            df_sel2=sp_df_base.copy(); df_sel2["_dist"]=np.sqrt((df_sel2.x_start-fx)**2+(df_sel2.y_start-fy)**2)
-            cands2=df_sel2[df_sel2["_dist"]<5.0].sort_values("_dist")
-            if not cands2.empty: sp_selected=cands2.iloc[0]
+            rw,rh = sp_img.size
+            px = sp_click["x"]*(rw/sp_click["width"])
+            py = sp_click["y"]*(rh/sp_click["height"])
+            fx,fy = sp_ax.transData.inverted().transform((px,rh-py))
+            df_sel2 = sp_df_base.copy()
+            df_sel2["_dist"] = np.sqrt((df_sel2.x_start-fx)**2+(df_sel2.y_start-fy)**2)
+            cands2 = df_sel2[df_sel2["_dist"]<5.0].sort_values("_dist")
+            if not cands2.empty: sp_selected = cands2.iloc[0]
         plt.close(sp_fig)
 
-        # ── Zone Heatmap ────────────────────────────────────────────────────
-        st.markdown('<h4 style="color:#ffffff;margin:14px 0 4px 0;">Zone Heatmap — Completed Passes</h4>',unsafe_allow_html=True)
-        sp_heat_img,_,sp_hfig=draw_corridor_heatmap(sp_df_base,title="Zone Heatmap — Block & Progression Completed")
+        st.markdown('<h4 style="color:#ffffff;margin:14px 0 4px 0;">Zone Heatmap — Completed</h4>',
+                    unsafe_allow_html=True)
+        sp_heat_img,_,sp_hfig = draw_corridor_heatmap(
+            sp_df_base,title="Zone Heatmap — Advanced Passes Completed")
         st.image(sp_heat_img,use_container_width=True); plt.close(sp_hfig)
 
-        # ── Zone Connections ─────────────────────────────────────────────────
-        st.markdown('<h4 style="color:#ffffff;margin:14px 0 4px 0;">Top Zone Connections</h4>',unsafe_allow_html=True)
-        sp_mini_img,_,sp_mini_fig=draw_top_connection_minimaps(
-            sp_df_base,top_k=3,title="Top Zone Connections — Block & Progression")
-        st.image(sp_mini_img,use_container_width=True); plt.close(sp_mini_fig)
-
-        # ── Selected Event ───────────────────────────────────────────────────
         st.divider(); st.subheader("Selected Event")
         if sp_selected is None:
             st.info("Click an origin dot on the map to inspect an event.")
         else:
-            ptype_label="Into Block" if sp_selected["pass_type"]=="into_block" else "Progression Pass"
-            status="✅ Completed" if sp_selected["is_won"] else "❌ Incomplete"
+            ptype_label = ("Line Breaking Pass"
+                           if sp_selected["pass_type"]=="line_breaking"
+                           else "Ball Progression Pass")
+            status = "✅ Completed" if sp_selected["is_won"] else "❌ Incomplete"
             st.success(f"Pass #{int(sp_selected['number'])} — {ptype_label} | {status}")
-            c1,c2=st.columns(2)
+            c1,c2 = st.columns(2)
             c1.write(f"**Origin:** ({sp_selected.x_start:.2f}, {sp_selected.y_start:.2f})")
             c2.write(f"**Destination:** ({sp_selected.x_end:.2f}, {sp_selected.y_end:.2f})")
             st.metric("Pass Distance",f"{sp_selected.pass_distance:.1f} m")
 
         with st.expander("📊 Full Data Table"):
-            dc2=["number","type","pass_type","outcome","x_start","y_start","x_end","y_end","pass_distance"]
+            dc2 = ["number","type","pass_type","outcome",
+                   "x_start","y_start","x_end","y_end","pass_distance"]
             st.dataframe(sp_df_base[dc2].style.format(
-                {"x_start":"{:.2f}","y_start":"{:.2f}","x_end":"{:.2f}","y_end":"{:.2f}","pass_distance":"{:.1f}"}),
+                {"x_start":"{:.2f}","y_start":"{:.2f}","x_end":"{:.2f}",
+                 "y_end":"{:.2f}","pass_distance":"{:.1f}"}),
                 use_container_width=True,height=320)
 
     with sp_col_stats:
-        # total passes from pass map for same match/position scope
         total_pm = len(pm_pos_full[sp_match])
-        ss = compute_special_stats(sp_df_base, total_pm)
+        ss = compute_advanced_stats(sp_df_base, total_pm)
 
-        with st.expander("🟡 Into-Block Passes", expanded=True):
-            st.markdown('<div class="stats-section-title">Into Block</div>',unsafe_allow_html=True)
-            b1,b2,b3=st.columns(3)
-            with b1: small_metric("Total",      f"{ss['blk_total']}")
-            with b2: small_metric("Completed",  f"{ss['blk_completed']}")
-            with b3: small_metric("Incomplete", f"{ss['blk_incomplete']}")
+        with st.expander("🟡 Line Breaking Passes", expanded=True):
+            st.markdown('<div class="stats-section-title">Line Breaking Passes</div>',
+                        unsafe_allow_html=True)
+            b1,b2,b3 = st.columns(3)
+            with b1: small_metric("Total",      f"{ss['lbp_total']}")
+            with b2: small_metric("Completed",  f"{ss['lbp_completed']}")
+            with b3: small_metric("Incomplete", f"{ss['lbp_incomplete']}")
             st.markdown("<hr style='margin:6px 0 8px 0;'>",unsafe_allow_html=True)
-            ba1,ba2=st.columns(2)
-            with ba1: small_metric("Accuracy",  f"{ss['blk_accuracy']:.1f}%")
-            with ba2: small_metric("Tendency",  f"{ss['blk_tendency']:.1f}%",
-                                   delta=f"{ss['blk_total']} of {total_pm} total passes")
+            ba1,ba2 = st.columns(2)
+            with ba1: small_metric("Accuracy", f"{ss['lbp_accuracy']:.1f}%")
+            with ba2: small_metric("Tendency", f"{ss['lbp_tendency']:.1f}%",
+                                   delta=f"{ss['lbp_total']} of {total_pm} total passes")
 
-        with st.expander("🟣 Progression Passes", expanded=True):
-            st.markdown('<div class="stats-section-title">Progression</div>',unsafe_allow_html=True)
-            p1,p2=st.columns(2)
-            with p1: small_metric("Total",    f"{ss['prog_total']}")
-            with p2: small_metric("Tendency", f"{ss['prog_tendency']:.1f}%",
-                                  delta=f"{ss['prog_total']} of {total_pm} total passes")
+        with st.expander("🟣 Ball Progression Passes", expanded=True):
+            st.markdown('<div class="stats-section-title">Ball Progression Passes</div>',
+                        unsafe_allow_html=True)
+            p1,p2 = st.columns(2)
+            with p1: small_metric("Total",    f"{ss['bpp_total']}")
+            with p2: small_metric("Tendency", f"{ss['bpp_tendency']:.1f}%",
+                                  delta=f"{ss['bpp_total']} of {total_pm} total passes")
 
         st.divider()
-        st.caption("🟡 Yellow = Into Block  ·  🟣 Purple = Progression  ·  🔴 Red = Incomplete")
+        st.caption("🟡 Yellow = Line Breaking  ·  🟣 Purple = Ball Progression  ·  🔴 Red = Incomplete")
