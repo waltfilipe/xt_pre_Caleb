@@ -317,7 +317,7 @@ def classify_pass_direction(x_start: float, y_start: float,
     else:
         if dist > LATERAL_MIN_DIST:
             # dy > 0 → toward y=80 (left touchline)
-            return "lateral_left" if dy > 0 else "lateral_right"
+            return "lateral_right" if dy > 0 else "lateral_left"
         # short ambiguous pass: classify by horizontal component
         return "forward" if dx >= 0 else "backward"
 
@@ -1173,5 +1173,5 @@ with col_stats:
     st.divider()
     st.caption(
         "Grey = Completed  ·  🔵 Blue = Progressive  ·  🔴 Red = Incomplete  |  "
-        "Lateral Left = toward left touchline (y↑) when attacking left→right."
+        "Lateral Right = toward upper touchline (y→80)  ·  Lateral Left = toward lower touchline (y→0)"
     )
